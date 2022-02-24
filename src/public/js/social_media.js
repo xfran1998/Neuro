@@ -35,7 +35,7 @@ const remove_checked = (clicked_btn) => {
 
 const add_animation = (clicked_btn) => {
 	// add class .animated-click to clicked button and 1 seg later remove it
-	clicked_btn.classList.remove("neuromorphic-dark");
+	clicked_btn.classList.remove("neuromorphic");
 	clicked_btn.classList.add("anime1");
 	setTimeout(() => {
 		clicked_btn.classList.add("anime2");
@@ -44,7 +44,7 @@ const add_animation = (clicked_btn) => {
 	setTimeout(() => {
 		clicked_btn.classList.remove("anime1");
 		clicked_btn.classList.remove("anime2");
-		clicked_btn.classList.add("neuromorphic-dark");
+		clicked_btn.classList.add("neuromorphic");
 	}, transition_time * 1000);
 };
 

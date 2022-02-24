@@ -6,8 +6,8 @@
 }
 
 body {
-	color: #dde1e7;
-	background-color: #4a4c4f;
+	background-color: #dde1e7;
+	color: #333;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -16,8 +16,13 @@ body {
 	font-family: "Poppins", sans-serif;
 }
 
+body.dark{
+	color: #dde1e7;
+	background-color: #4a4c4f;
+}
+
 header{
-	width:100vw;
+	width:100%;
 	position: relative;
 }
 
@@ -97,6 +102,10 @@ li {
 	transition: all 0.5s ease-in-out;
 }
 
+.no-transition-btn li{
+	transition: all 0s linear !important;
+}
+
 body.dark li.neuromorphic{
 	box-shadow:  19px 19px 50px #393b3d,
              -19px -19px 50px #5b5d61;
@@ -130,6 +139,32 @@ i {
 .fa-java {
 	color: #dd2a2a;
 	font-weight: bolder;
+}
+
+.neuromorphic {
+	box-shadow: 13px 13px 16px #c7cbd0, -13px -13px 16px #f3f8fe;
+}
+
+.neuromorphic-inset {
+	box-shadow: inset 13px 13px 16px #c7cbd0, inset -13px -13px 16px #f3f8fe;
+}
+
+.neuromorphic2 {
+	box-shadow: 7px 7px 8px #c7cbd0, -7px -7px 8px #f3f8fe;
+}
+
+.neuromorphic-inset2 {
+	box-shadow: inset 13px 13px 16px #c7cbd0, inset -13px -13px 16px #f3f8fe;
+}
+
+.neuromorphic3 {
+	box-shadow:  10px 10px 20px #babdc2,
+             -10px -10px 20px #ffffff;
+}
+
+.neuromorphic-inset3 {
+	box-shadow: inset 10px 10px 20px #babdc2,
+            inset -10px -10px 20px #ffffff;
 }
 
 body.dark .neuromorphic{
@@ -204,12 +239,13 @@ body.dark .neuromorphic-inset3 {
 	text-align: justify;
 }
 
-.anime1 {
+body.dark .anime1 {
 	box-shadow: 0 0 0 #5b5d61, 0 0 0 #393b3d, 10px 10px 10px #38393b inset,
 		-10px -10px 10px #484b4e inset, 6px 6px 17px #36383a,
 		-6px -6px 17px #57595c;
 }
-.anime2 {
+
+body.dark .anime2 {
 	box-shadow: 10px 10px 10px #5b5d61, 10px 10px 10px #393b3d,
 		0 0 0 #5b5d61 inset, 0 0 0 #393b3d inset, 6px 6px 17px #36383a,
 		-6px -6px 17px #393b3d;
