@@ -11,22 +11,13 @@ async function start_page() {
 		// let tbody = document.querySelector('tbody');
 
 		tbody.innerHTML = data;
-		
-		call_prism();
+
+		// call_prism();
 	} catch (err) {
 		console.log("error get_page_async");
 		console.log(err);
 	}
 }
-
-function call_prism () {
-	const script = document.createElement('script');
-	script.src = 'js/prism.js';
-
-	let script_container = document.querySelector('#script-container');
-	script_container.appendChild(script);
-};
-
 // // select the target node
 // var target = document.querySelector('#tbody');
 

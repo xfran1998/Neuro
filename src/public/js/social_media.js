@@ -1,7 +1,7 @@
-const media_btn = document.querySelectorAll(".media-btn");
-const tbody = document.querySelector("#tbody");
+let media_btn = document.querySelectorAll(".media-btn");
+let tbody = document.querySelector("#tbody");
 
-const transition_time = 0.2;
+let transition_time = 0.2;
 
 // change media_btn style
 media_btn.forEach((btn) => {
@@ -13,13 +13,11 @@ media_btn.forEach((btn) => {
 		// remove_checked(btn);
 		// btn.classList.toggle("btn-checked");
 		let tut = btn.getAttribute("tut");
-		console.log(tut);
 		add_animation(btn);
 
 		// check if tbody have the same tut
 		let tbody_tut = tbody.getAttribute("tut");
 		if (tbody_tut !== tut) {
-			console.log("tbody_tut !== tut");
 			get_page_async(tut);
 		}
 	});
@@ -40,7 +38,7 @@ const add_animation = (clicked_btn) => {
 	setTimeout(() => {
 		clicked_btn.classList.add("anime2");
 	}, transition_time * 1000);
-	
+
 	setTimeout(() => {
 		clicked_btn.classList.remove("anime1");
 		clicked_btn.classList.remove("anime2");
@@ -61,14 +59,15 @@ async function get_page_async(page) {
 	// fetch GET page with the given page name as source/page.html
 	try {
 		replace_animation(tbody);
-		const response = await fetch(`source/${page}.html`);
-		const data = await response.text();
+		let response = await fetch(`source/${page}.html`);
+		let data = await response.text();
 		// console.log(data);
 		// console.log(tbody);
 		setTimeout(() => {
 			tbody.innerHTML = data;
 			tbody.setAttribute("tut", page);
-			call_prism();
+			console.log("tbody changed");
+			call_scripts(tbody);
 		}, 500);
 	} catch (err) {
 		console.log("error get_page_async");
@@ -76,12 +75,18 @@ async function get_page_async(page) {
 	}
 }
 
-function call_prism () {
-	const script = document.createElement('script');
-	script.src = 'js/prism.js';
+function call_scripts(tbody) {
+	console.log(tbody);
+	tbody.querySelectorAll("script").forEach((script) => {
+		let script_src = script.getAttribute("src");
+		// check if script_src is already loaded
+		if (script_src) {
+			let node_script = document.createElement("script");
+			node_script.src = script_src;
+			// script.parentNode.removeChild(script);
 
-	let script_container = document.querySelector('#script-container');
-	script_container.appendChild(script);
-
-	console.log('script_container: ', script_container);
-};
+			tbody.appendChild(node_script);
+			console.log("script added");
+		}
+	});
+}

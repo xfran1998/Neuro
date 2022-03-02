@@ -1,6 +1,6 @@
-const mode_btn = document.querySelector("#mode-btn");
-const body = document.querySelector("body");
-const nav = document.querySelector("#nav");
+let mode_btn = document.querySelector("#mode-btn");
+let body = document.querySelector("body");
+let nav = document.querySelector("#nav");
 
 console.log(mode_btn);
 

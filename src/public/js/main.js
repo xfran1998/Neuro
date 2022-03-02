@@ -1,12 +1,4 @@
-const socket = io();
-
 const cmd = document.querySelector("#server_command");
-
-
-// Socket stuff
-socket.on('server', (message) => {
-    console.log(message);
-});
 
 // Page stuff
 cmd.addEventListener('keydown', (key_event) => {
