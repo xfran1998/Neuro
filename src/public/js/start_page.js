@@ -9,7 +9,6 @@ async function start_page() {
 		// console.log(tbody);
 
 		// let tbody = document.querySelector('tbody');
-
 		tbody.innerHTML = data;
 
 		// call_prism();

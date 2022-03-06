@@ -90,3 +90,4 @@ function call_scripts(tbody) {
 		}
 	});
 }
+
