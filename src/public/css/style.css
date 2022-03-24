@@ -87,6 +87,7 @@ ul {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-flow: row wrap;
 }
 
 li {
@@ -554,6 +555,136 @@ table input[type="number"]{
 .pd-tb20{
 	padding-top: 20px;
 	padding-bottom: 20px;
+}
+
+/* LOGIN -> USER -> NAV */
+#user-nav{
+	margin-top: 20px;
+}
+
+#user-nav li{
+	border-radius: 5px;
+	display: flex;
+	width: auto;
+	height: auto;
+	min-width: 250px;
+	min-height: 100px;
+	align-items: stretch;
+	justify-content: center;
+	flex-flow: row wrap;
+	box-shadow: -1px 3px 15px 1px rgb(0 0 0 / 10%);
+}
+
+.dark #user-nav li{
+	background-color: #2aaa8c;
+	box-shadow: rgb(143 135 135 / 30%) -1px 3px 10px 1px;
+}
+
+#user-nav li div:first-child{
+	width: 40%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#user-nav li div:last-child{
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #e2eaeb;
+	/* box-shadow: -1px 3px 15px 1px rgb(0 0 0 / 10%); */
+}
+
+.dark #user-nav li div:last-child{
+	background-color: rgb(69 69 73);
+	/* box-shadow: -1px 3px 10px 1px rgb(251 249 249 / 30%); */
+	color: white;
+}
+
+#user-nav [page="perfil"] div:first-child{
+	background-color: #a3c86d;
+}
+
+#user-nav [page="historial"] div:first-child{
+	background-color: #ff7857;
+}
+
+#user-nav [page="configuracion"] div:first-child{
+	background-color: #e7b417;
+}
+
+#user-nav p {
+    width: fit-content;
+    padding: 1px 0;
+    font-size: 1rem;
+    padding-bottom: 10px;
+    font-weight: 400;
+}
+
+#user-nav h3{
+	font-size: 2.3rem;
+	padding-top: 10px;
+	margin: 0;
+}
+
+#profile-container{
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+}
+
+#profile-container .card-body{
+	width: 100%;	
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 0 30px; /* row-gap column gap */
+}
+
+#profile-container aside{
+	width: 250px;
+	display: flex;
+	align-items: center;
+	justify-self: center;
+	flex-direction: column;	
+}
+
+#profile-container aside img{
+	width: 80%;
+	max-width: 200px;
+	margin-bottom: 30px;
+}
+
+.neu-in{
+	width: fit-content;
+	padding: 10px 30px;
+	border-radius: 100px;
+}
+
+#profile-info{
+	width: fit-content;
+	height: 100%;
+	max-width: 1000px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	margin: 30px 40px;
+	/* padding-right: 100px; */
+	padding: 20px;
+	/* background-color: #e2eaeb;
+	box-shadow: -1px 3px 15px 1px rgb(0 0 0 / 10%); */
+}
+
+#profile-info p{
+	padding: 6px 10px;
+	margin: 0;
+	text-align: center;
 }
 
 @keyframes replace-out {

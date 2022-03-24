@@ -12,13 +12,13 @@ media_btn.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		// remove_checked(btn);
 		// btn.classList.toggle("btn-checked");
-		let tut = btn.getAttribute("tut");
+		let page = btn.getAttribute("page");
 		add_animation(btn);
 
-		// check if tbody have the same tut
-		let tbody_tut = tbody.getAttribute("tut");
-		if (tbody_tut !== tut) {
-			get_page_async(tut);
+		// check if tbody have the same page
+		let tbody_page = tbody.getAttribute("page");
+		if (tbody_page !== page) {
+			get_page_async(page);
 		}
 	});
 });
@@ -55,19 +55,19 @@ const replace_animation = (body) => {
 	}, 500);
 };
 
-async function get_page_async(page) {
+async function get_page_async(page, body=tbody) {
 	// fetch GET page with the given page name as source/page.html
 	try {
-		replace_animation(tbody);
+		replace_animation(body);
 		let response = await fetch(`source/${page}.html`);
 		let data = await response.text();
 		// console.log(data);
-		// console.log(tbody);
+		// console.log(body);
 		setTimeout(() => {
-			tbody.innerHTML = data;
-			tbody.setAttribute("tut", page);
-			console.log("tbody changed");
-			call_scripts(tbody);
+			body.innerHTML = data;
+			body.setAttribute("page", page);
+			console.log("body changed");
+			call_scripts(body); // llama a los scripts que no se llaman desde fecth
 		}, 500);
 	} catch (err) {
 		console.log("error get_page_async");
@@ -75,11 +75,12 @@ async function get_page_async(page) {
 	}
 }
 
-function call_scripts(tbody) {
-	console.log(tbody);
-	tbody.querySelectorAll("script").forEach((script) => {
+function call_scripts(body) {
+	console.log("call_scripts");
+	body.querySelectorAll("script").forEach((script) => {
 		let script_src = script.getAttribute("src");
 		// check if script_src is already loaded
+		console.log("adding scripts");
 		if (script_src) {
 			let node_script = document.createElement("script");
 			node_script.src = script_src;

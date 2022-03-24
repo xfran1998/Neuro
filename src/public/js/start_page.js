@@ -1,6 +1,6 @@
 async function start_page() {
 	// fetch GET page with the given page name as source/page.html
-	let first_page = document.querySelector("#nav li").getAttribute("tut");
+	let first_page = document.querySelector("#nav li").getAttribute("page");
 
 	try {
 		const response = await fetch(`./source/${first_page}.html`);

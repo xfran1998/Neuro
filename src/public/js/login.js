@@ -33,15 +33,15 @@ var changeForm = (e) => {
 
 for (var i = 0; i < allButtons.length; i++) {
 	allButtons[i].addEventListener("click", getButtons);
-	console.log(allButtons[i]);
+	// console.log(allButtons[i]);
 }
 
 for (var i = 0; i < switchBtn.length; i++) {
 	switchBtn[i].addEventListener("click", changeForm);
-	console.log("click: ", switchBtn[i]);
+	// console.log("click: ", switchBtn[i]);
 }
 
-console.log("****** - ********");
-console.log(switchC1);
-console.log(switchC2);
-console.log("****** - ********");
+// console.log("****** - ********");
+// console.log(switchC1);
+// console.log(switchC2);
+// console.log("****** - ********");
